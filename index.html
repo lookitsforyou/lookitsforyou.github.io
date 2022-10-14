@@ -229,7 +229,26 @@ requestId = window.requestAnimationFrame(update);
 window.setTimeout(function() {
   if (requestId) {
     window.cancelAnimationFrame(requestId)
+    centeredText("Flowers for you Bebi!",70,"Red")
   };
   console.log("cancelAnimationFrame")
 }, 6000)
+
+
+
+function centeredText(string, fontSize, color) {
+        var i = string.length;
+        i = i*fontSize*0.62;
+        if (i > c.width) {
+          i = c.width;
+        }
+        ctx.fillStyle = "RGBA(255, 255, 255, 0.8)";
+        ctx.fillRect(c.width / 2 - i / 2,c.height / 2 - (fontSize * 1.5) / 2, i, (fontSize * 1.5) );
+        ctx.font = fontSize.toString() + "px monospace";
+        ctx.fillStyle = color;
+        ctx.textBaseline = "middle";
+        ctx.textAlign = "center";
+
+        ctx.fillText(string, c.width / 2, c.height / 2);
+    }
 </script>
